@@ -1,31 +1,15 @@
-# The following code implements A* search to solve the path finding problem in a 10x10 maze.
-# However, it has some BUGS leading to infinite loops and nonoptimal solutions! 
-''' 
-DEBUG the code to make it work with the maze map given in the exercise. 
-Hint: You might want to print the current_node and the closed_list (explored set) for each loop 
-      to check if the current_node is in the closed_list.
-'''
-
 
 class Node():
     """A node class for A* search"""
-
     def __init__(self, parent=None, position=None):
         self.parent = parent
         self.position = position
-
         self.g = 0 # PATH-COST to the node
         self.h = 0 # heuristic to the goal: straight-line distance hueristic
         self.f = 0 # evaluation function f(n) = g(n) + h(n)
-
     def __eq__(self, other):
         return self.position == other.position
-
-
-''' DEBUG THE FOLLOWING FUNCTION '''
 def astar(maze, start, end):
-    """Returns a list of tuples as a solution from "start" to "end" state in "maze" map using A* search.
-    See lecture slide for the A* algorithm."""
 
     # Create start and end node
     start_node = Node(None, start)
